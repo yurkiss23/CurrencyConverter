@@ -5,8 +5,81 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CurrencyConverter"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style TargetType="Label">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="Foreground" Value="IndianRed"/>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="Foreground" Value="IndianRed"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="28"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="DarkRed"/>
+        </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="Foreground" Value="IndianRed"/>
+        </Style>
+    </Window.Resources>
+    <DockPanel>
+        <Border DockPanel.Dock="Top" Background="AntiqueWhite" BorderThickness="3" CornerRadius="7">
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="lblName" Content="Currensy Converter" FontWeight="Bold" Width="575"/>
+                <Label>
+                    <DatePicker x:Name="dpNow" Width="190"/>
+                </Label>
+                <!--<Label x:Name="lblDate" Content="{Binding Source={x:Static sys:DateTime.Now}}"
+                       BorderThickness="3" Background="White"
+                       Width="200"/>-->
+            </StackPanel>
+        </Border>
+        <StackPanel DockPanel.Dock="Bottom">
+
+        </StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="350"/>
+                <ColumnDefinition Width="84"/>
+                <ColumnDefinition Width="350"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="115"/>
+                <RowDefinition Height="60"/>
+            </Grid.RowDefinitions>
+            <Border Background="AntiqueWhite" BorderThickness="3" CornerRadius="7" Grid.Column="0" Grid.Row="0">
+                <StackPanel>
+                    <TextBlock x:Name="tbChange" Text="Change"/>
+                    <WrapPanel>
+                        <TextBox x:Name="txtChange" Text="100" Width="250"/>
+                        <ComboBox x:Name="cbChange" Width="94"/>
+                    </WrapPanel>
+                </StackPanel>
+            </Border>
+            <Border Background="AntiqueWhite" BorderThickness="3" CornerRadius="7" Grid.Column="1" Grid.Row="0">
+                <Label x:Name="lblChange" Height="60" Width="60" VerticalAlignment="Top" Margin="0,20"
+                       MouseLeftButtonDown="mlbd_Click" Cursor="Hand">
+                    <Image x:Name="imgChange" Source="Resources/15217120351530177264-64.png"/>
+                </Label>
+            </Border>
+            <Border Background="AntiqueWhite" BorderThickness="3" CornerRadius="7" Grid.Column="2" Grid.Row="0">
+                <StackPanel>
+                    <TextBlock x:Name="tbGet" Text="Get"/>
+                    <WrapPanel>
+                        <TextBox x:Name="txtGet" Width="250"/>
+                        <ComboBox x:Name="cbGet" Width="94"/>
+                    </WrapPanel>
+                </StackPanel>
+            </Border>
+            <Border Background="AntiqueWhite" BorderThickness="3" CornerRadius="7" Grid.Column="0" Grid.Row="1"
+                    Grid.ColumnSpan="3">
+                <Button x:Name="btnChange" Width="200" Height="40" Content="Change" FontSize="24"
+                        Foreground="IndianRed" FontWeight="Bold" Click="BtnChange_Click"/>
+            </Border>
+        </Grid>
+    </DockPanel>
 </Window>
